@@ -59,3 +59,4 @@ while True:
    x[r] = random.randrange(10, 1990)
  pygame.time.delay(10)
 
+#Теперь миша портит
