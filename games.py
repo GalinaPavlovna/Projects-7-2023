@@ -6,9 +6,9 @@ import random
 n=6
 nf=3
 pygame.init() #страртует пайгейм
-p = pygame.display.set_mode((1366,786)) #экранчик
+p = pygame.display.set_mode((800,786)) #экранчик
 h1=pygame.image.load("b1.jpg") #скачать героя 1
-h1=pygame.transform.scale(h1,(55,117))
+h1=pygame.transform.scale(h1,(55,80))
 h1.set_colorkey((255,255,255)) #установить прозрачность
 e=h1.get_rect(topleft=(10,300)) #перевести в квадрат
 p.blit(h1,(e.x,e.y))# нарисовать
@@ -27,8 +27,8 @@ while True:
    sys.exit()
 
 #Движение героя
- if e.x>1306:
-  e.x=1306
+ if e.x>750:
+  e.x=750
  if e.x<0:
   e.x=0
  if e.y>650:
@@ -49,3 +49,4 @@ while True:
  pygame.time.delay(10)
 
 #Теперь миша портит
+ h2=pygame.Rect(400,400,50,50)
