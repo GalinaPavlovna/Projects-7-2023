@@ -3,8 +3,8 @@ import sys
 import random
 
 # p - экран, h1-воздушный кикорик
-n=6
-nf=4
+n=2
+nf=3
 pygame.init() #страртует пайгейм
 p = pygame.display.set_mode((2000,900)) #экранчик
 h1=pygame.image.load("ппр.png") #скачать героя 1
@@ -13,7 +13,7 @@ e=h1.get_rect(topleft=(10,300)) #перевести в квадрат
 p.blit(h1,(e.x,e.y))# нарисовать
 counter=0
 #Делаем сов
-
+sh=pygame.font.Font(None,20)
 
 f1=pygame.image.load("сова.svg")
 s_sq=[]
@@ -38,8 +38,9 @@ while True:
  for r in range (n):
   w[r]=pygame.draw.circle(p, (255, 255, 0), (x[r], y[r]), 15)
  p.blit(h1, (e.x, e.y))
-
  pygame.display.update()
+ mo=sh.render(str(counter),True,(3,5,2))
+ p.blit(mo, (1500, 500))
 #Выход из игры
 
  q=pygame.event.get()
@@ -83,10 +84,9 @@ while True:
 #ловим шарики
  for o in range(n):
   t = e.colliderect(w[o])
+
   if t == True:
+   print(w[o])
    counter+=1
-   print(counter)
-   y[r] = 0
-   x[r] = random.randrange(10, 1990)
-
-
+   y[o] = 0
+   x[o] = random.randrange(10, 1990)
