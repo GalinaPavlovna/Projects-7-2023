@@ -3,8 +3,7 @@ import sys
 import random
 
 # p - экран, h1-воздушный кикорик
-n=6
-nf=3
+n=4
 pygame.init() #страртует пайгейм
 p = pygame.display.set_mode((800,786)) #экранчик
 h1=pygame.image.load("b1.jpg") #скачать героя 1
@@ -12,12 +11,15 @@ h1=pygame.transform.scale(h1,(55,80))
 h1.set_colorkey((255,255,255)) #установить прозрачность
 e=h1.get_rect(topleft=(10,300)) #перевести в квадрат
 p.blit(h1,(e.x,e.y))# нарисовать
-h2=pygame.Rect(400,400,50,50)
+h2=[ ]
+for i in range (n):
+ h2.append(pygame.Rect(random.randint(100,700),(i+1)*100,40,40))
 while True:
  # Отрисовка
  p.fill((250, 250, 210))#залить
  p.blit(h1, (e.x, e.y))
- pygame.draw.rect(p,(0,0,0),h2)
+ for i in h2:
+     pygame.draw.rect(p,(0,0,0),i)
  pygame.display.update()
 
 #Выход
@@ -51,9 +53,9 @@ while True:
 
 #Теперь миша портит
 #движение цензуры
- if h2.x>750:
-  h2.x=0
- h2.move_ip(12,0)
+ # if h2.x>750:
+ #  h2.x=0
+ # h2.move_ip(12,0)
 
 #лок сталкновения
 
