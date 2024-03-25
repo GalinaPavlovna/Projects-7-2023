@@ -8,7 +8,7 @@ def Gameover():
  p.blit(mo1, (290, 100))
  pygame.display.update()
 # p - экран, h1-воздушный кикорик
-n=6
+n=6000
 nf=5
 pygame.init() #страртует пайгейм
 p = pygame.display.set_mode((1920,900)) #экранчик
@@ -34,7 +34,9 @@ w=[0]*n
 for r in range (n):
  y.append(random.randrange(-600,0))
  x.append(random.randrange(10,1990))
-while True:
+flug=True
+
+while flug:
 
 #Отрисовка
  p.fill((250, 250, 210))#залить
@@ -76,7 +78,7 @@ while True:
   if t==True:
    #sys.exit
    Gameover()
-
+  # flug=False
   # if i.type == pygame.KEYDOWN and i.key == pygame.K_a:and i.key == pygame.K_ESCAPE
   #  e.move_ip(-11, 0)
   # if i.type == pygame.KEYDOWN and i.key == pygame.K_d:
